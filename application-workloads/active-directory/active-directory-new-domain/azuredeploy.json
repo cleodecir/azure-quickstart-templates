@@ -4,35 +4,31 @@
     "parameters": {
         "adminUsername": {
             "type": "string",
-            "defaultValue": "voxxel",
             "metadata": {
                 "description": "The name of the administrator account of the new VM and domain"
             }
         },
         "adminPassword": {
             "type": "securestring",
-            "defaultValue": "QazWsx@123456",
             "metadata": {
                 "description": "The password for the administrator account of the new VM and domain"
             }
         },
         "domainName": {
             "type": "string",
-            "defaultValue": "voxxelbr.onmicrosoft.com",
             "metadata": {
                 "description": "The FQDN of the Active Directory Domain to be created"
             }
         },
         "dnsPrefix": {
             "type": "string",
-            "defaultValue": "voxxelbr",
             "metadata": {
                 "description": "The DNS prefix for the public IP address used by the Load Balancer"
             }
         },
         "vmSize": {
             "type": "string",
-            "defaultValue": "Standard_B2s",
+            "defaultValue": "Standard_D2s_v3",
             "metadata": {
                 "description": "Size of the VM for the controller"
             }
@@ -42,7 +38,7 @@
             "metadata": {
                 "description": "The location of resources, such as templates and DSC modules, that the template depends on"
             },
-			"defaultValue": "[deployment().properties.templateLink.uri]"
+            "defaultValue": "[deployment().properties.templateLink.uri]"
         },
         "_artifactsLocationSasToken": {
             "type": "securestring",
@@ -305,8 +301,8 @@
                     "imageReference": {
                         "publisher": "MicrosoftWindowsServer",
                         "offer": "WindowsServer",
-                        "sku": "2019-Datacenter",
-                        "version": "17763.3131.220505"
+                        "sku": "2016-Datacenter",
+                        "version": "latest"
                     },
                     "osDisk": {
                         "name": "[concat(parameters('virtualMachineName'),'_OSDisk')]",
